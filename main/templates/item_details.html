@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Item Detail</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        li {
+            list-style-type: none;
+            margin-bottom: 15px;
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #3498db;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+
+        script {
+            /* Add any styles for the script tag if needed */
+        }
+    </style>
+</head>
+<body>
+    <li><div><strong>Item Code:</strong> {{ item.item_code }}</div></li>
+    <li><div><strong>Item Name:</strong> {{ item.item_name }}</div></li>
+    <li><div><strong>Item Measurement:</strong> {{ item.item_measurement }}</div></li>
+    <li><div><strong>Item Quantity:</strong> {{ item.item_quantity }}</div></li>
+    <li><div><strong>Image URL:</strong> {{ item.item_image.url }}</div></li>
+    <li><div><strong>Gallery:</strong> <img src="{{ item.item_image.url }}" alt="Gallery" /></div></li>
+    <li><div><strong>Supplier Name:</strong> {{ item.supplier_name }}</div></li>
+    <li><div><strong>Employee Name:</strong> {{ item.employee_name }}</div></li>
+    <li><div><strong>Created At:</strong> {{ item.created_at }}</div></li>
+
+    <a href="{% url 'item_list_view'%}">Item List</a>
+    <a href="{% url 'item_edit_view' pk=item.pk %}">Edit Item</a>
+    <a href="{% url 'item_delete_view' pk=item.pk %}">Delete Item</a>
+
+    <script src="" async defer></script>
+</body>
+</html>
